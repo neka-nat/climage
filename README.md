@@ -1,4 +1,5 @@
 # climage
+[![crates.io](https://img.shields.io/crates/v/climage.svg)](https://crates.io/crates/climage)
 
 Rust implementation of image processing library with OpenCL.
 
