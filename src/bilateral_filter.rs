@@ -56,8 +56,11 @@ impl<'a> BilateralFilter<'a> {
         let mut weights: Vec<f32> = vec![0.0; weight_size as usize];
         for i in -sigma_space..(sigma_space + 1) {
             for j in -sigma_space..(sigma_space + 1) {
-                let weight = (-((i * i + j * j) as f32) / (2.0 * ((sigma_space * sigma_space) as f32))).exp();
-                weights[(i + sigma_space + (j + sigma_space) * (sigma_space * 2 + 1)) as usize] = weight;
+                let weight = (-((i * i + j * j) as f32)
+                    / (2.0 * ((sigma_space * sigma_space) as f32)))
+                    .exp();
+                weights[(i + sigma_space + (j + sigma_space) * (sigma_space * 2 + 1)) as usize] =
+                    weight;
             }
         }
         let sum_weight = weights.iter().sum::<f32>();
